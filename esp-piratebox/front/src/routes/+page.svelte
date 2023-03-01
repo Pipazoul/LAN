@@ -1,5 +1,6 @@
 <script>
-    import FilesUpload from '$lib/components/FilesUpload.svelte';
+    import DisplayFiles from '$lib/components/DisplayFiles.svelte';
+import FilesUpload from '$lib/components/FilesUpload.svelte';
 import Nav from '$lib/components/Nav.svelte';
 </script>
 <section>
@@ -12,4 +13,5 @@ import Nav from '$lib/components/Nav.svelte';
         </p>
     </div>
     <FilesUpload />
+    <DisplayFiles />
 </section>

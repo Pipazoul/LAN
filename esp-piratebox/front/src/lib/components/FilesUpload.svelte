@@ -1,6 +1,6 @@
 <script lang="ts">
 
-let  imageDisplay, fileinput;
+let  imageDisplay, fileinput, filename;
 	
 const onFileSelected =(e)=>{
   console.log(e.target.files[0]);
@@ -8,7 +8,9 @@ const onFileSelected =(e)=>{
   let reader = new FileReader();
   reader.readAsDataURL(image);
   reader.onload = (e) => {
-    // dither image
+    // set file name
+    filename = image.name;
+
     compressImage(e.target.result);
   };
 }
@@ -52,8 +54,30 @@ function compressImage(image) {
 
         // set the imageDisplay variable to the compressed image data URL
         imageDisplay = dataURL;
+
     };
 }
+function uploadImage() {
+    console.log("uploading image");
+    // convert the compressed data URL string to a Blob object
+    fetch(imageDisplay)
+        .then(res => res.blob())
+        .then(blob => {
+            // create a new FormData object and append the blob with the file name
+            let formData = new FormData();
+            formData.append('file', blob, filename);
+
+            // upload the form data to the server using fetch
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            }).then(res => res.json())
+            .then(data => {
+                console.log(data);
+            });
+        });
+}
+
 
 
 </script>
@@ -66,5 +90,5 @@ function compressImage(image) {
   {/if}
   <input type="file" bind:this={fileinput} on:change={onFileSelected} />
 
-  <button class="bg-red-400 rounded-xl p-4">publier l'image</button>
+  <button class="bg-red-400 rounded-xl p-4" on:click={(e) => {uploadImage()}} >publier l'image</button>
 </section>
