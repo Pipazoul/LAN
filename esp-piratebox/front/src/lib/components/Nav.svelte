@@ -4,7 +4,7 @@
     <h1 class="mr-4">ESP PirateBox</h1>
     <ul class="flex space-x-4">
         <li><a href="/index.html">Home</a></li>
-        <li><a href="/files.html">Fichiers</a></li>
-        <li><a href="/about.html">About</a></li>
+        <li><a href="#">Fichiers</a></li>
+        <li><a href="#">About</a></li>
     </ul>
 </nav>
