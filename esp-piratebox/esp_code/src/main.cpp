@@ -7,7 +7,7 @@
 
 
 // SSID & Password ******************************************************
-const char* ssid = "PIRATEBOX";
+const char* ssid = "🐥192.168.4.1/index.html🐥";
 const char* password = "";
 // IP Address ***********************************************************
 IPAddress local_ip(192, 168, 4, 1);

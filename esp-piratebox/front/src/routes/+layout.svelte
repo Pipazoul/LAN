@@ -2,5 +2,7 @@
     import "../app.css";
     import Nav from '$lib/components/Nav.svelte';
 </script>
-<Nav />
-<slot/>
+<body class="w-fit">
+    <Nav />
+    <slot/>
+</body>
